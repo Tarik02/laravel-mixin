@@ -24,9 +24,9 @@ $ echo "*\n\!.gitignore" > storage/framework/mixin/.gitignore
 The package provides the following commands:
 
 ```bash
-$ php artisan mixin:generate     # Generate all mixins
 $ php artisan mixin:cache        # Cache all mixins and use only cache
 $ php artisan mixin:cache:clear  # Clear mixins cache
+$ php artisan mixin:generate     # Generate all mixins
 ```
 
 Cache should only be used in production and be regenerated after every code change. 
@@ -35,6 +35,10 @@ Cache should only be used in production and be regenerated after every code chan
 ## Documentation
 
 You can generate documentation using the Sami. Documentation for master branch is always available [here](https://Tarik02.github.io/laravel-mixin/).
+
+## Note
+
+You should use all methods of this package only during application booting phase. Using them during another stages may lead to undefined behaviour.
 
 ## Usage example
 
@@ -108,7 +112,7 @@ class MixinServiceProvider extends ServiceProvider
 }
 ```
 
-Add `MixinServiceProvider` before `AppServiceProvider` to `providers` section in config:
+Add `MixinServiceProvider` before `AppServiceProvider` to `providers` section in `config/app.php`:
 
 ```php
 +        App\Providers\MixinServiceProvider::class,
@@ -116,6 +120,18 @@ Add `MixinServiceProvider` before `AppServiceProvider` to `providers` section in
 ```
 
 Now you have to use `\Models\Article` class instead of `\App\Models\Article` (really, you can name it whatever you want).
+
+If your trait has a constructor, you should pass `true` as second parameter to `mixTrait` function.
+
+Complete list of building methods of `MixedClass`:
+
+- `mixInterface(string $name)` - add an interface to implements section.
+- `mixTrait(string $name, bool $hasConstructor = false)` - add a trait to use section.
+- `useInsteadOf(string $method, string $trait, string $replacedTrait)` - use method named `$method` from trait `$trait` instead of the one from `$replacedTrait`.
+- `renameMethod(string $trait, string $oldName, string $newName)` - rename method named `$oldName` of trait `$trait` to `$newName`.
+- `beforeConstruct(string $code)` - add `$code` before parent constructor call.
+- `afterConstruct(string $code)` - add `$code` after parent constructor call.
+- `code(string $code)` - add `$code` into class body (property or method).
 
 
 ## Under the hood
