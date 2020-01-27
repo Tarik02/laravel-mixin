@@ -34,7 +34,7 @@ Cache should only be used in production and be regenerated after every code chan
 
 ## Documentation
 
-You can generate documentation using the phpDocumentor. Documentation for master branch is always available [here](https://Tarik02.github.io/laravel-mixin/).
+You can generate documentation using the Sami. Documentation for master branch is always available [here](https://Tarik02.github.io/laravel-mixin/).
 
 ## Usage example
 
