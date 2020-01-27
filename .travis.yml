@@ -1,0 +1,17 @@
+env:
+  global:
+    - secure: "T6y5LRFpKnUjE/r5c1bkafj0T0BBrW4ABQDenPgZUFY1hgVZrY6PMFpOLtPQjSzjCOGkQT1iBieBKn3g0XKfFfpB6ntz4u8NriXLfqH7ZlyCFi9OlMShPPCwYSNq/wOaagh2w7ri3303LFZYeVHNqoGkqVRl92T9EYO5G2I2sXXpM0gnLwkqwvL15yAjvgf22vMlBpuO/IXJnKT7SQE07bmXHiwYXrGga/x1atXm8vgYdYYGCtgnIGlntYAsMcLpBJJIHxmegXza4fa/X1xnhZnBp2cCSDJt6WK2wmCVTI5yq4x8lz6wWS65Np42khg96Ds8retLx7nlkKkV/0fWdvBXIwM9yNx8U4xu8EoVhsDdob9yrqRuiZfTbH0xMgEVEhAkiXrh02x5mYKIt4FKX8XMuBAQQK+QRWQKnOl46sKfWEylWB8nK7e//f/UFijxo8g5Vku/7TFtivfVQNu7UqrjyjT+SJKv/3PaMlUs5iwM2fGpJClDYV0EdYfdwboBkRpDJaGw1/aB2V8mhyXWFaBpoOy4oSpUE3zKGwaud2bXfJ8LLCWGoapY6Fv3c44LsWxvEBunOQNEEkoEW3S1PMSDMeI8x+H+2lF3Qx1pTYJzmY86L+Bf7o2iKPAgyOxqe1JGzHLskw7Wzw5Dw/3LVERQhDhGNHTg27WZLXbWEUw="
+
+language: php
+php:
+  - '7.2'
+  - '7.3'
+
+before_script:
+  - composer install
+
+script:
+  - echo -n
+
+after_script:
+  - bash .travis.doc.sh

@@ -1,0 +1,36 @@
+{
+    "name": "tarik02/laravel-mixin",
+    "description": "Mixin library for Laravel",
+    "keywords": ["laravel", "mixin", "composition"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tarik02",
+            "email": "Taras.Fomin@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "illuminate/console": "^5.5|^6",
+        "illuminate/container": "^5.5|^6",
+        "illuminate/support": "^5.5|^6",
+        "illuminate/view": "^5.5|^6"
+    },
+    "require-dev": {
+        "laravel/framework": "5.5.x"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tarik02\\LaravelMixin\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tarik02\\LaravelMixin\\Providers\\LaravelMixinServiceProvider"
+            ]
+        }
+    }
+}
